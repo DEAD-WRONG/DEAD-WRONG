@@ -97,10 +97,10 @@ button {
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 15px;
+  font-size: 0.9vw;
   margin-top: 5px;
   margin-bottom: 5px;
-  width: 200px;
+  width: 180px;
 }
 
 button:hover {
@@ -126,6 +126,11 @@ button:hover {
 
   h2 {
     font-size: 4vw;
+  }
+
+  button {
+    font-size: 3vw;
+    width: 180px;
   }
 }
 
