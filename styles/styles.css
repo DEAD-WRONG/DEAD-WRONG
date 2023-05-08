@@ -259,7 +259,7 @@ button:hover {
   }
 
   img {
-    width: 290px;
+    width: 280px;
   }
 
   h1 {
@@ -272,6 +272,8 @@ button:hover {
 
   button {
     /* font-size: 3vw; */
+    font-size: 13px;
+    width: 150px;
   }
   
   form {
