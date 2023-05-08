@@ -139,6 +139,11 @@ body {
   box-sizing: border-box;
 }
 
+img {
+  aspect-ratio: 2400 / 1000;
+  width: 380px;
+}
+
 h1 {
   margin: 0 auto;
   font-weight: 700;
@@ -227,12 +232,12 @@ button {
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 0.8vw;
+  font-size: 16px;
   margin-top: 5px;
   margin-bottom: 5px;
   width: 180px;
   font-family: Satoshi-Variable;
-  font-weight: 490;
+  font-weight: 550;
 }
 
 button:hover {
@@ -253,6 +258,10 @@ button:hover {
 
   }
 
+  img {
+    width: 290px;
+  }
+
   h1 {
     font-size: 11vw;
   }
@@ -262,7 +271,7 @@ button:hover {
   }
 
   button {
-    font-size: 3vw;
+    /* font-size: 3vw; */
   }
   
   form {
