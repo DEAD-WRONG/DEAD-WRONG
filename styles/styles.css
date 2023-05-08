@@ -272,8 +272,9 @@ button:hover {
 
   button {
     /* font-size: 3vw; */
-    font-size: 13px;
+    font-size: 12px;
     width: 150px;
+    padding: 7px 20px;
   }
   
   form {
