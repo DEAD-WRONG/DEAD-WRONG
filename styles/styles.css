@@ -222,6 +222,19 @@ form {
   display: inline;
 }
 
+a {
+  font-family: Satoshi-Variable;
+  font-weight: 550;
+  font-size: 16px;
+  color: black;
+}
+
+a:visited {
+  color: black;
+}
+
+
+
 button {
   transition-duration: 0.4s;
   background-color: transparent;
