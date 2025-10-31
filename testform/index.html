@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Scrivi un messaggio</title>
+
+<!-- Font moderno -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --bg: #ffffff;
+    --fg: #000000;
+    --radius: 12px;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    margin: 0;
+    padding: 24px;
+    min-height: 100vh;
+    background: var(--bg);
+    color: var(--fg);
+    font-family: "Inter", sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  h1 {
+    font-weight: 600;
+    margin-bottom: 24px;
+    text-align: center;
+    font-size: 1.6rem;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+    max-width: 360px;
+    background: transparent;
+    padding: 0;
+  }
+
+  textarea {
+    border: none;
+    border-radius: var(--radius);
+    padding: 12px;
+    font-family: inherit;
+    font-size: 1rem;
+    resize: none;
+    height: 120px;
+    outline: none;
+    background: #f8f8f8;
+    transition: background 0.2s;
+  }
+
+  textarea:focus {
+    background: #f0f0f0;
+  }
+
+  button {
+    margin-top: 16px;
+    padding: 12px;
+    border: none;
+    border-radius: var(--radius);
+    background: #000;
+    color: #fff;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.1s;
+  }
+
+  button:hover {
+    background: #333;
+  }
+
+  button:active {
+    transform: scale(0.98);
+  }
+
+  p {
+    margin-top: 16px;
+    text-align: center;
+    font-size: 0.9rem;
+  }
+
+  @media (max-width: 480px) {
+    body {
+      padding: 16px;
+    }
+    h1 {
+      font-size: 1.4rem;
+    }
+  }
+</style>
+</head>
+<body>
+
+  <h1>Scrivi un messaggio</h1>
+
+  <!-- 🔗 Inserisci qui il tuo URL dell’App Script -->
+  <form id="msgForm" action="https://script.google.com/macros/s/AKfycbwrcKYXFmDsTAZLXoqOvdEZd8EgFtTvE50Zyv4FtP6oZnQJ2u1kuayvgljq9pXUYhn3/exec" method="post" target="hidden_iframe">
+    <textarea name="messaggio" id="messaggio" placeholder="Scrivi qui il tuo messaggio..." required></textarea>
+    <button type="submit">Invia</button>
+  </form>
+
+  <iframe name="hidden_iframe" style="display:none;"></iframe>
+  <p id="status"></p>
+
+  <script>
+    const form = document.getElementById('msgForm');
+    const textarea = document.getElementById('messaggio');
+    const status = document.getElementById('status');
+
+    form.addEventListener('submit', () => {
+      status.textContent = "Invio in corso...";
+      setTimeout(() => {
+        textarea.value = "";
+        status.textContent = "Messaggio inviato! Sarà visibile dopo approvazione.";
+      }, 800);
+    });
+  </script>
+</body>
+</html>
