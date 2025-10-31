@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<title>Invia un messaggio</title>
+<style>
+  body {
+    background: white;
+    color: black;
+    font-family: monospace;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+  }
+  textarea, button {
+    margin: 8px;
+    padding: 8px;
+    width: 250px;
+    border: 1px solid black;
+    background: white;
+    color: black;
+  }
+  textarea {
+    height: 100px;
+    resize: none;
+  }
+  button {
+    cursor: pointer;
+  }
+</style>
+</head>
+<body>
+  <h1>Scrivi un messaggio</h1>
+  <textarea id="messaggio" placeholder="Scrivi qui..."></textarea>
+  <button onclick="invia()">Invia</button>
+  <p id="status"></p>
+
+  <script>
+    const scriptURL = "PASTE_L’URL_DELL’APP_WEB_DI_GOOGLE_SCRIPT";
+
+    async function invia() {
+      const messaggio = document.getElementById('messaggio').value.trim();
+      const status = document.getElementById('status');
+
+      if (!messaggio) {
+        status.textContent = "Scrivi qualcosa prima di inviare.";
+        return;
+      }
+
+      status.textContent = "Invio in corso...";
+      await fetch(scriptURL, {
+        method: "POST",
+        body: JSON.stringify({ messaggio }),
+        headers: { "Content-Type": "application/json" }
+      });
+
+      status.textContent = "Messaggio inviato! Sarà visibile dopo approvazione.";
+      document.getElementById('messaggio').value = "";
+    }
+  </script>
+</body>
+</html>
