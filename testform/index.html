@@ -126,17 +126,13 @@
     const textarea = document.getElementById('messaggio');
     const status = document.getElementById('status');
 
-        function msgSent() {
-      if (textarea.value !== "") { // evita trigger all'apertura iniziale
-        status.textContent = "Messaggio inviato! Sarà visibile dopo approvazione.";
-        textarea.value = "";
-      }
-    }
-
     form.addEventListener('submit', () => {
       status.textContent = "Invio in corso...";
       setTimeout(() => {
         textarea.value = "";
+        status.textContent = "✅ Messaggio inviato! Sarà visibile dopo approvazione.";
+      }, 800);
+    });
   </script>
 </body>
 </html>
