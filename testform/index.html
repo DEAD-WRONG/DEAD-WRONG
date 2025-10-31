@@ -73,6 +73,7 @@
     border-radius: var(--radius);
     background: #000;
     color: #fff;
+    font-family: "Inter", sans-serif; /* forzato per coerenza */
     font-weight: 600;
     font-size: 1rem;
     cursor: pointer;
@@ -110,6 +111,10 @@
   <!-- 🔗 Inserisci qui il tuo URL dell’App Script -->
   <form id="msgForm" action="https://script.google.com/macros/s/AKfycbwrcKYXFmDsTAZLXoqOvdEZd8EgFtTvE50Zyv4FtP6oZnQJ2u1kuayvgljq9pXUYhn3/exec" method="post" target="hidden_iframe">
     <textarea name="messaggio" id="messaggio" placeholder="Scrivi qui il tuo messaggio..." required></textarea>
+
+    <!-- campo nascosto per approvazione false -->
+    <input type="hidden" name="approvato" value="false">
+
     <button type="submit">Invia</button>
   </form>
 
@@ -125,9 +130,3 @@
       status.textContent = "Invio in corso...";
       setTimeout(() => {
         textarea.value = "";
-        status.textContent = "Messaggio inviato! Sarà visibile dopo approvazione.";
-      }, 800);
-    });
-  </script>
-</body>
-</html>
