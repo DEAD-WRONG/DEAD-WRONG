@@ -29,6 +29,10 @@ header img{
   object-fit:contain;
 }
 
+.lowercase {
+  text-transform: lowercase;
+}
+
 /* FOOTER */
 footer{
   border-top:2px solid #000;
@@ -130,7 +134,7 @@ function artists(el){
 
 function contact(el){
   clear();el.classList.add('sel')
-  r.innerHTML='<a href="mailto:info@deadwrong.it">info@deadwrong.it</a>'
+  r.innerHTML='<a href="mailto:info@deadwrong.it" class="lowercase">info@deadwrong.it</a>'
 }
 
 // link esterni aprono in nuova finestra
