@@ -82,15 +82,18 @@ a:hover,.item:hover{transform:translateX(6px);opacity:.7}
   }
   a,.item {
     gap: 8px;
+    position: relative; /* per rendere :: visibile su mobile */
   }
   .meta {
     font-size: 10px;
+  }
+  .sel::before {
+    left: 0; /* posizione corretta del :: su mobile */
   }
 }
 </style>
 
 <header>
-  <!-- sostituisci src con il tuo file logo -->
   <img src="images/logo.jpg" alt="DEAD WRONG">
 </header>
 
@@ -127,7 +130,7 @@ function artists(el){
 
 function contact(el){
   clear();el.classList.add('sel')
-  r.innerHTML='<div class="item">Business inquiries: <a href="mailto:info@deadwrong.it">info@deadwrong.it</a></div>'
+  r.innerHTML='<a href="mailto:info@deadwrong.it">info@deadwrong.it</a>'
 }
 
 // link esterni aprono in nuova finestra
