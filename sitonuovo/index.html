@@ -94,9 +94,10 @@ function artists(el){
       <span class="meta">[management] [booking] [label]</span>
     </div>`
 }
+  
 function contact(el){
   clear();el.classList.add('sel')
-  r.innerHTML='<form><input placeholder="email"><br><textarea placeholder="message"></textarea></form>'
+  r.innerHTML='<div class="item">Business inquiries: <a href="mailto:info@deadwrong.it">info@deadwrong.it</a></div>'
 }
 
 document.querySelectorAll('a[href]').forEach(a=>{
