@@ -104,6 +104,7 @@ a:hover,.item:hover{transform:translateX(6px);opacity:.7}
 <main>
   <div id="l">
     <a onclick="artists(this)">artists</a>
+    <a onclick="artists(this)">producers</a>
     <a href="https://shop.deadwrong.it">shop</a>
     <a href="https://instagram.com/deadwrong.it">instagram</a>
     <a onclick="contact(this)">contact</a>
@@ -132,6 +133,19 @@ function artists(el){
     </div>`
 }
 
+function producers(el){
+  clear();el.classList.add('sel')
+  r.innerHTML=`
+    <div class="item">
+      <span>amoresperro</span>
+      <span class="meta">[management]</span>
+    </div>
+    <div class="item">
+      <span>dnoise</span>
+      <span class="meta">[management]</span>
+    </div>`
+}
+  
 function contact(el){
   clear();el.classList.add('sel')
   r.innerHTML='<a href="mailto:info@deadwrong.it" class="lowercase">info@deadwrong.it</a>'
