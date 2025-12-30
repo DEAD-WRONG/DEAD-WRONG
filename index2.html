@@ -1,0 +1,178 @@
+<!doctype html>
+<title>DEAD WRONG</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://api.fontshare.com/v2/css?f[]=switzer@400&display=swap" rel="stylesheet">
+<link rel="apple-touch-icon" sizes="180x180" href="images/assets/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="images/assets/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="images/assets/favicon-16x16.png">
+<link rel="manifest" href="images/assets/site.webmanifest">
+
+<style>
+*{box-sizing:border-box}
+
+/* BODY */
+body{
+  margin:0;height:100vh;
+  font-family:Switzer,sans-serif;
+  text-transform:uppercase;color:#000;
+  font-size:20px;
+  display:grid;
+  grid-template-rows:80px 1fr auto;
+}
+
+/* HEADER */
+header {
+  height: 80px;               /* altezza fissa */
+  border-bottom: 2px solid #000;
+  padding: 0 30px;            /* rimuovi padding verticale, lo gestiamo con flex */
+  display: flex;
+  align-items: center;        /* centra verticalmente il logo */
+}
+header img{
+  max-height:80%;
+  max-width:160px;
+  object-fit:contain;
+}
+
+.lowercase {
+  text-transform: lowercase;
+}
+
+/* FOOTER */
+footer {
+  height: 80px;               /* stessa altezza dell’header */
+  border-top: 2px solid #000;
+  padding: 0 30px;            /* padding verticale rimosso */
+  display: flex;
+  align-items: center;        /* centra verticalmente il testo */
+  justify-content: center;    /* testo centrato orizzontalmente */
+  font-size: 12px;
+}
+
+/* MAIN */
+main{display:flex}
+#l,#r{flex:1;padding:16px 30px}
+#r{border-left:2px solid #000}
+
+/* LINKS */
+a,.item{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  color:#000;text-decoration:none;
+  margin:8px 0;
+  cursor:pointer;
+  position:relative;
+  transition:transform .25s,opacity .25s
+}
+a:hover,.item:hover{transform:translateX(6px);opacity:.7}
+
+.sel::before{
+  content:":: ";
+  position:absolute;
+  left:-18px;
+  top:-2px;
+}
+
+/* TAGS */
+.meta{
+  font-size:11px;
+}
+
+/* MOBILE RESPONSIVE */
+@media (max-width: 768px) {
+  main {
+    flex-direction: column;
+  }
+  #r {
+    border-left: none;
+    border-top: 2px solid #000;
+    padding-top: 20px;
+  }
+  #l, #r {
+    padding: 15px;
+  }
+  body {
+    font-size: 16px;
+  }
+  header, footer {
+    padding: 12px 20px;
+  }
+  a,.item {
+    gap: 8px;
+    position: relative; /* per rendere :: visibile su mobile */
+  }
+  .meta {
+    font-size: 10px;
+  }
+  .sel::before {
+    left: -12px; /* meno fuori rispetto ai -24px desktop */
+    display: inline-block;
+    transform: translateY(-2px)
+  }
+}
+</style>
+
+<header>
+  <img src="images/logo.jpg" alt="DEAD WRONG">
+</header>
+
+<main>
+  <div id="l">
+    <a onclick="artists(this)">artists</a>
+    <a onclick="producers(this)">producers</a>
+    <a href="https://shop.deadwrong.it">shop</a>
+    <a href="https://instagram.com/deadwrong.it">instagram</a>
+    <a onclick="contact(this)">contact</a>
+  </div>
+  <div id="r"></div>
+</main>
+
+<footer>
+  © 2026 DEAD WRONG
+</footer>
+
+<script>
+const r=document.getElementById('r')
+const clear=_=>document.querySelectorAll('.sel').forEach(e=>e.classList.remove('sel'))
+
+function artists(el){
+  clear();el.classList.add('sel')
+  r.innerHTML=`
+    <div class="item">
+      <span>emilianoakario</span>
+      <span class="meta">[management] [booking] [label]</span>
+    </div>
+    <div class="item">
+      <span>ett</span>
+      <span class="meta">[management] [booking] [label]</span>
+    </div>`
+}
+
+function producers(el){
+  clear();el.classList.add('sel')
+  r.innerHTML=`
+    <div class="item">
+      <span>amoresperro</span>
+      <span class="meta">[management]</span>
+    </div>
+    <div class="item">
+      <span>dnoise</span>
+      <span class="meta">[management]</span>
+    </div>`
+}
+  
+function contact(el){
+  clear();el.classList.add('sel')
+  r.innerHTML='<a href="mailto:info@deadwrong.it" class="lowercase">info@deadwrong.it</a>'
+}
+
+// link esterni aprono in nuova finestra
+document.querySelectorAll('a[href]').forEach(a=>{
+  if(a.href.startsWith('http')){
+    a.target='_blank'
+    a.rel='noopener noreferrer'
+  }
+})
+</script>
