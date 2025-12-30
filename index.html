@@ -85,6 +85,11 @@ a:hover,.item:hover{transform:translateX(6px);opacity:.7}
   main {
     flex-direction: column;
   }
+  body, main, #l, #r {
+    width: 100%;
+    min-width: 0; /* importante per evitare overflow con flex */
+  }
+  
   #r {
     border-left: none;
     border-top: 2px solid #000;
