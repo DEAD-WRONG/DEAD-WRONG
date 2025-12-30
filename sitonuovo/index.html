@@ -1,7 +1,12 @@
 <!doctype html>
+<title>DEAD WRONG</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link href="https://api.fontshare.com/v2/css?f[]=switzer@400&display=swap" rel="stylesheet">
+<link rel="apple-touch-icon" sizes="180x180" href="images/assets/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="images/assets/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="images/assets/favicon-16x16.png">
+<link rel="manifest" href="images/assets/site.webmanifest">
 
 <style>
 *{box-sizing:border-box}
@@ -17,14 +22,15 @@ body{
 }
 
 /* HEADER */
-header{
-  border-bottom:2px solid #000;
-  padding:16px 30px;
-  display:flex;
-  align-items:center;
+header {
+  height: 80px;               /* altezza fissa */
+  border-bottom: 2px solid #000;
+  padding: 0 30px;            /* rimuovi padding verticale, lo gestiamo con flex */
+  display: flex;
+  align-items: center;        /* centra verticalmente il logo */
 }
 header img{
-  max-height:80%;
+  max-height:50%;
   max-width:160px;
   object-fit:contain;
 }
@@ -34,16 +40,19 @@ header img{
 }
 
 /* FOOTER */
-footer{
-  border-top:2px solid #000;
-  padding:12px 30px;
-  font-size:12px;
-  text-align:center;
+footer {
+  height: 80px;               /* stessa altezza dell’header */
+  border-top: 2px solid #000;
+  padding: 0 30px;            /* padding verticale rimosso */
+  display: flex;
+  align-items: center;        /* centra verticalmente il testo */
+  justify-content: center;    /* testo centrato orizzontalmente */
+  font-size: 12px;
 }
 
 /* MAIN */
 main{display:flex}
-#l,#r{flex:1;padding:30px}
+#l,#r{flex:1;padding:16px 30px}
 #r{border-left:2px solid #000}
 
 /* LINKS */
@@ -58,7 +67,13 @@ a,.item{
   transition:transform .25s,opacity .25s
 }
 a:hover,.item:hover{transform:translateX(6px);opacity:.7}
-.sel::before{content:":: ";position:absolute;left:-18px}
+
+.sel::before{
+  content:":: ";
+  position:absolute;
+  left:-18px;
+  top:-2px;
+}
 
 /* TAGS */
 .meta{
@@ -67,22 +82,33 @@ a:hover,.item:hover{transform:translateX(6px);opacity:.7}
 
 /* MOBILE RESPONSIVE */
 @media (max-width: 768px) {
-  main {
-    flex-direction: column;
+main {
+  display: flex;
+  flex-direction: column; /* su mobile */
+  min-width: 0;           /* evita overflow dei figli */
+}
+  body, main, #l, #r {
+    width: 100%;
+    min-width: 0; /* importante per evitare overflow con flex */
   }
+  
   #r {
     border-left: none;
     border-top: 2px solid #000;
     padding-top: 20px;
   }
   #l, #r {
-    padding: 15px;
+    padding-left: 20px;
+    padding-top: 12px;
   }
   body {
     font-size: 16px;
   }
   header, footer {
     padding: 12px 20px;
+  }
+    header img {
+    max-height: 70%;
   }
   a,.item {
     gap: 8px;
@@ -93,6 +119,7 @@ a:hover,.item:hover{transform:translateX(6px);opacity:.7}
   }
   .sel::before {
     left: -12px; /* meno fuori rispetto ai -24px desktop */
+    display: inline-block;
   }
 }
 </style>
