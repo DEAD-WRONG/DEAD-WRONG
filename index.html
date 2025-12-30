@@ -22,14 +22,15 @@ body{
 }
 
 /* HEADER */
-header{
-  border-bottom:2px solid #000;
-  padding:16px 30px;
-  display:flex;
-  align-items:center;
+header {
+  height: 80px;               /* altezza fissa */
+  border-bottom: 2px solid #000;
+  padding: 0 30px;            /* rimuovi padding verticale, lo gestiamo con flex */
+  display: flex;
+  align-items: center;        /* centra verticalmente il logo */
 }
 header img{
-  max-height:80%;
+  max-height:50%;
   max-width:160px;
   object-fit:contain;
 }
@@ -39,11 +40,14 @@ header img{
 }
 
 /* FOOTER */
-footer{
-  border-top:2px solid #000;
-  padding:12px 30px;
-  font-size:12px;
-  text-align:center;
+footer {
+  height: 80px;               /* stessa altezza dell’header */
+  border-top: 2px solid #000;
+  padding: 0 30px;            /* padding verticale rimosso */
+  display: flex;
+  align-items: center;        /* centra verticalmente il testo */
+  justify-content: center;    /* testo centrato orizzontalmente */
+  font-size: 12px;
 }
 
 /* MAIN */
@@ -87,13 +91,17 @@ a:hover,.item:hover{transform:translateX(6px);opacity:.7}
     padding-top: 20px;
   }
   #l, #r {
-    padding: 15px;
+    padding-left: 20px;
+    padding-top: 12px;
   }
   body {
     font-size: 16px;
   }
   header, footer {
     padding: 12px 20px;
+  }
+    header img {
+    max-height: 70%;
   }
   a,.item {
     gap: 8px;
@@ -105,7 +113,6 @@ a:hover,.item:hover{transform:translateX(6px);opacity:.7}
   .sel::before {
     left: -12px; /* meno fuori rispetto ai -24px desktop */
     display: inline-block;
-    transform: translateY(-2px)
   }
 }
 </style>
