@@ -80,6 +80,45 @@ a:hover,.item:hover{transform:translateX(6px);opacity:.7}
   font-size:11px;
 }
 
+.newsletter{
+  margin-top:16px;
+  display:flex;
+  gap:12px;
+  align-items:center;
+}
+
+.newsletter input[type="email"]{
+  border:none;
+  border-bottom:2px solid #000;
+  font-family:inherit;
+  font-size:inherit;
+  text-transform:uppercase;
+  padding:4px 0;
+  background:none;
+  width:240px;
+}
+
+.newsletter input::placeholder{
+  color:#000;
+  opacity:.4;
+}
+
+.newsletter button{
+  background:none;
+  border:none;
+  font-family:inherit;
+  font-size:inherit;
+  text-transform:uppercase;
+  cursor:pointer;
+  padding:0;
+}
+
+.newsletter button:hover{
+  opacity:.7;
+  transform:translateX(6px);
+  transition:.25s;
+}
+
 /* MOBILE RESPONSIVE */
 @media (max-width: 768px) {
 main {
@@ -120,6 +159,14 @@ main {
   .sel::before {
     left: -12px; /* meno fuori rispetto ai -24px desktop */
     display: inline-block;
+  }
+   .newsletter{
+    flex-direction:column;
+    align-items:flex-start;
+    gap:8px;
+  }
+  .newsletter input{
+    width:100%;
   }
 }
 </style>
@@ -180,12 +227,37 @@ function contact(el){
 }
 
 function keepintouch(el){
-  clear();el.classList.add('sel')
-  r.innerHTML=`
-    <div class="item">
+  clear(); el.classList.add('sel')
+  r.innerHTML = `
+    <div class="item" style="flex-direction:column;align-items:flex-start;gap:6px">
       <span>Subscribe for updates on upcoming releases and merch drops.</span>
       <span>Get 10% off your next purchase.</span>
-    </div>`
+    </div>
+
+    <form
+      method="POST"
+      action="https://183b873d.sibforms.com/serve/MUIFAKB_TxmD5ZqWe4sUdHtQb4GpAbJ8JA-wGgyHQzKw_Is1onQOKksgShE7gNX4BfNgpcq29gBWxO-VXzyHrCbje_bDGxMWxm6JbHRr8Wb9W26JLnemGHdpOYz0Y2iz70x7ebTonQ2osuQ7FQdbUha5h3FtNTdDXa6uNyKvOx6N45WoMwLCQHf5vBU_5jcg4M9jYXL3Pz1z7Z3n"
+      class="newsletter"
+    >
+      <input
+        type="email"
+        name="EMAIL"
+        placeholder="email"
+        required
+      >
+
+      <button type="submit">subscribe</button>
+
+      <input type="text" name="email_address_check" value="" hidden>
+      <input type="hidden" name="locale" value="it">
+      <input type="hidden" name="html_type" value="simple">
+    </form>
+
+    <div class="meta">
+      By subscribing you agree to receive email updates.
+      <a href="/privacy-policy">Privacy</a>
+    </div>
+  `
 }
 
 // link esterni aprono in nuova finestra
