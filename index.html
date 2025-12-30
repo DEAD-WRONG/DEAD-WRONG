@@ -82,9 +82,11 @@ a:hover,.item:hover{transform:translateX(6px);opacity:.7}
 
 /* MOBILE RESPONSIVE */
 @media (max-width: 768px) {
-  main {
-    flex-direction: column;
-  }
+main {
+  display: flex;
+  flex-direction: column; /* su mobile */
+  min-width: 0;           /* evita overflow dei figli */
+}
   body, main, #l, #r {
     width: 100%;
     min-width: 0; /* importante per evitare overflow con flex */
