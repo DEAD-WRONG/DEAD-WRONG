@@ -135,6 +135,7 @@ main {
     <a href="https://shop.deadwrong.it">shop</a>
     <a href="https://instagram.com/deadwrong.it">instagram</a>
     <a onclick="contact(this)">contact</a>
+    <a onclick="keepintouch(this)">keep in touch</a>
   </div>
   <div id="r"></div>
 </main>
@@ -176,6 +177,14 @@ function producers(el){
 function contact(el){
   clear();el.classList.add('sel')
   r.innerHTML='<a href="mailto:info@deadwrong.it" class="lowercase">info@deadwrong.it</a>'
+}
+
+function keepintouch(el){
+  clear();el.classList.add('sel')
+  r.innerHTML=`
+    <div class="item">
+      <span>let's keep in touch</span>
+    </div>`
 }
 
 // link esterni aprono in nuova finestra
