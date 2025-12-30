@@ -151,20 +151,19 @@ a:hover,.item:hover{transform:translateX(6px);opacity:.7}
   opacity:.4;
 }
 
-/* SUBSCRIBE BUTTON */
 .newsletter button{
-  width:42px;
-  height:42px;
+  padding:6px 12px;            /* spazio attorno al testo */
   background:#000;
   color:#fff;
   border:none;
-  font-family:inherit;
-  font-size:12px;
-  text-transform:uppercase;
+  font-family:inherit;         /* stesso font del sito */
+  font-size:inherit;           /* eredita la dimensione del body/main */
+  text-transform:uppercase;    /* coerente con il resto del sito */
   cursor:pointer;
-  display:flex;
+  display:inline-flex;
   align-items:center;
   justify-content:center;
+  line-height:1;
 }
 
 .newsletter button:hover{
