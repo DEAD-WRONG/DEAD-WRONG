@@ -119,6 +119,73 @@ a:hover,.item:hover{transform:translateX(6px);opacity:.7}
   transition:.25s;
 }
 
+/* KEEP IN TOUCH TEXT (NO HOVER) */
+.keep-text{
+  display:flex;
+  flex-direction:column;
+  gap:6px;
+  pointer-events:none; /* disabilita hover */
+}
+
+/* NEWSLETTER FORM */
+.newsletter{
+  margin-top:16px;
+  display:flex;
+  gap:12px;
+  align-items:center;
+}
+
+.newsletter input[type="email"]{
+  border:none;
+  border-bottom:2px solid #000;
+  font-family:inherit;
+  font-size:inherit;
+  text-transform:uppercase;
+  padding:4px 0;
+  background:none;
+  width:240px;
+}
+
+.newsletter input::placeholder{
+  color:#000;
+  opacity:.4;
+}
+
+/* SUBSCRIBE BUTTON */
+.newsletter button{
+  width:42px;
+  height:42px;
+  background:#000;
+  color:#fff;
+  border:none;
+  font-family:inherit;
+  font-size:12px;
+  text-transform:uppercase;
+  cursor:pointer;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.newsletter button:hover{
+  opacity:.8;
+}
+
+/* CONSENT */
+.consent{
+  margin-top:8px;
+  display:flex;
+  align-items:center;
+  gap:8px;
+  font-size:11px;
+  text-transform:none;
+}
+
+.consent input{
+  accent-color:#000;
+  cursor:pointer;
+}
+  
 /* MOBILE RESPONSIVE */
 @media (max-width: 768px) {
 main {
@@ -229,7 +296,7 @@ function contact(el){
 function keepintouch(el){
   clear(); el.classList.add('sel')
   r.innerHTML = `
-    <div class="item" style="flex-direction:column;align-items:flex-start;gap:6px">
+    <div class="keep-text">
       <span>Subscribe for updates on upcoming releases and merch drops.</span>
       <span>Get 10% off your next purchase.</span>
     </div>
@@ -246,17 +313,17 @@ function keepintouch(el){
         required
       >
 
-      <button type="submit">subscribe</button>
+      <button type="submit">→</button>
 
       <input type="text" name="email_address_check" value="" hidden>
       <input type="hidden" name="locale" value="it">
       <input type="hidden" name="html_type" value="simple">
     </form>
 
-    <div class="meta">
-      By subscribing you agree to receive email updates.
-      <a href="/privacy-policy">Privacy</a>
-    </div>
+    <label class="consent">
+      <input type="checkbox" required>
+      <span>I agree to receive email updates.</span>
+    </label>
   `
 }
 
