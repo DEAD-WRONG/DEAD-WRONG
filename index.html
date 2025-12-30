@@ -63,7 +63,12 @@ a,.item{
   transition:transform .25s,opacity .25s
 }
 a:hover,.item:hover{transform:translateX(6px);opacity:.7}
-.sel::before{content:":: ";position:absolute;left:-18px}
+
+  .sel::before{
+  content:":: ";
+  display:inline-block;
+  left:-18px
+}
 
 /* TAGS */
 .meta{
