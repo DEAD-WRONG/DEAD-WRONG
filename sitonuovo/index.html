@@ -1,4 +1,6 @@
 <!doctype html>
+<html lang="en">
+<head>
 <title>DEAD WRONG</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,9 +11,7 @@
 <link rel="manifest" href="images/assets/site.webmanifest">
 
 <style>
-*{box-sizing:border-box}
-
-/* BODY */
+*{box-sizing:border-box;}
 body{
   margin:0;height:100vh;
   font-family:Switzer,sans-serif;
@@ -20,42 +20,31 @@ body{
   display:grid;
   grid-template-rows:80px 1fr auto;
 }
-
-/* HEADER */
 header {
-  height: 80px;               /* altezza fissa */
+  height: 80px;
   border-bottom: 2px solid #000;
-  padding: 0 30px;            /* rimuovi padding verticale, lo gestiamo con flex */
+  padding: 0 30px;
   display: flex;
-  align-items: center;        /* centra verticalmente il logo */
+  align-items: center;
 }
 header img{
   max-height:50%;
   max-width:160px;
   object-fit:contain;
 }
-
-.lowercase {
-  text-transform: lowercase;
-}
-
-/* FOOTER */
+.lowercase {text-transform: lowercase;}
 footer {
-  height: 80px;               /* stessa altezza dell’header */
+  height: 80px;
   border-top: 2px solid #000;
-  padding: 0 30px;            /* padding verticale rimosso */
+  padding: 0 30px;
   display: flex;
-  align-items: center;        /* centra verticalmente il testo */
-  justify-content: center;    /* testo centrato orizzontalmente */
+  align-items: center;
+  justify-content: center;
   font-size: 12px;
 }
-
-/* MAIN */
-main{display:flex}
-#l,#r{flex:1;padding:16px 30px}
-#r{border-left:2px solid #000}
-
-/* LINKS */
+main{display:flex;}
+#l,#r{flex:1;padding:16px 30px;}
+#r{border-left:2px solid #000;}
 a,.item{
   display:flex;
   align-items:center;
@@ -64,61 +53,28 @@ a,.item{
   margin:8px 0;
   cursor:pointer;
   position:relative;
-  transition:transform .25s,opacity .25s
+  transition:transform .25s,opacity .25s;
 }
-a:hover,.item:hover{transform:translateX(6px);opacity:.7}
-
+a:hover,.item:hover{transform:translateX(6px);opacity:.7;}
 .sel::before{
   content:":: ";
   position:absolute;
   left:-18px;
   top:-2px;
 }
-
-/* TAGS */
-.meta{
-  font-size:11px;
-}
-
-.newsletter{
-  margin-top:16px;
-  display:flex;
-  gap:12px;
-  align-items:center;
-}
-
-.newsletter input[type="email"]{
-  border:none;
-  border-bottom:2px solid #000;
-  font-family:inherit;
-  font-size:inherit;
-  text-transform:uppercase;
-  padding:4px 0;
-  background:none;
-  width:240px;
-}
-
-.newsletter input::placeholder{
-  color:#000;
-  opacity:.4;
-}
-
-/* KEEP IN TOUCH TEXT (NO HOVER) */
+.meta{font-size:11px;}
 .keep-text{
   display:flex;
   flex-direction:column;
   gap:6px;
-  pointer-events:none; /* disabilita hover */
+  pointer-events:none;
 }
-
-/* NEWSLETTER FORM */
 .newsletter{
   margin-top:16px;
   display:flex;
   gap:12px;
   align-items:center;
 }
-
 .newsletter input[type="email"]{
   border:none;
   border-bottom:2px solid #000;
@@ -129,12 +85,7 @@ a:hover,.item:hover{transform:translateX(6px);opacity:.7}
   background:none;
   width:240px;
 }
-
-.newsletter input::placeholder{
-  color:#000;
-  opacity:.4;
-}
-
+.newsletter input::placeholder{color:#000;opacity:.4;}
 .newsletter button{
   padding:6px 12px;
   background:#000;
@@ -145,20 +96,12 @@ a:hover,.item:hover{transform:translateX(6px);opacity:.7}
   text-transform:uppercase;
   cursor:pointer;
   display:inline-flex;
-  align-items:center;         /* centra verticalmente il testo */
+  align-items:center;
   justify-content:center;
   line-height:1;
-  vertical-align:middle;
   transition:transform .25s, opacity .25s;
-  transform: translateX(0);   /* punto di partenza */
 }
-
-.newsletter button:hover{
-  transform: translate3d(6px, 0, 0);  /* forza lo spostamento solo orizzontale */
-  opacity:.8;
-}
-
-/* CONSENT */
+.newsletter button:hover{transform:translateX(6px);opacity:.8;}
 .consent{
   margin-top:8px;
   display:flex;
@@ -167,63 +110,23 @@ a:hover,.item:hover{transform:translateX(6px);opacity:.7}
   font-size:11px;
   text-transform:none;
 }
-
-.consent input{
-  accent-color:#000;
-  cursor:pointer;
-}
-  
-/* MOBILE RESPONSIVE */
-@media (max-width: 768px) {
-main {
-  display: flex;
-  flex-direction: column; /* su mobile */
-  min-width: 0;           /* evita overflow dei figli */
-}
-  body, main, #l, #r {
-    width: 100%;
-    min-width: 0; /* importante per evitare overflow con flex */
-  }
-  
-  #r {
-    border-left: none;
-    border-top: 2px solid #000;
-    padding-top: 20px;
-  }
-  #l, #r {
-    padding-left: 20px;
-    padding-top: 12px;
-  }
-  body {
-    font-size: 16px;
-  }
-  header, footer {
-    padding: 12px 20px;
-  }
-    header img {
-    max-height: 70%;
-  }
-  a,.item {
-    gap: 8px;
-    position: relative; /* per rendere :: visibile su mobile */
-  }
-  .meta {
-    font-size: 10px;
-  }
-  .sel::before {
-    left: -12px; /* meno fuori rispetto ai -24px desktop */
-    display: inline-block;
-  }
-   .newsletter{
-    flex-direction:column;
-    align-items:flex-start;
-    gap:8px;
-  }
-  .newsletter input{
-    width:100%;
-  }
+.consent input{accent-color:#000;cursor:pointer;}
+@media (max-width:768px){
+  main {flex-direction: column;}
+  #r {border-left: none; border-top:2px solid #000; padding-top:20px;}
+  #l,#r {padding-left:20px; padding-top:12px;}
+  body {font-size:16px;}
+  header, footer {padding:12px 20px;}
+  header img {max-height:70%;}
+  a,.item {gap:8px;position:relative;}
+  .meta{font-size:10px;}
+  .sel::before{left:-12px;display:inline-block;}
+  .newsletter{flex-direction:column;align-items:flex-start;gap:8px;}
+  .newsletter input{width:100%;}
 }
 </style>
+</head>
+<body>
 
 <header>
   <img src="images/logo.jpg" alt="DEAD WRONG">
@@ -241,97 +144,78 @@ main {
   <div id="r"></div>
 </main>
 
-<footer>
-  © 2026 DEAD WRONG
-</footer>
+<footer>© 2026 DEAD WRONG</footer>
 
 <script>
-const r=document.getElementById('r')
-const clear=_=>document.querySelectorAll('.sel').forEach(e=>e.classList.remove('sel'))
+const r=document.getElementById('r');
+const clear=_=>document.querySelectorAll('.sel').forEach(e=>e.classList.remove('sel'));
 
 function artists(el){
-  clear();el.classList.add('sel')
+  clear(); el.classList.add('sel');
   r.innerHTML=`
-    <div class="item">
-      <span>emilianoakario</span>
-      <span class="meta">[management] [booking] [label]</span>
-    </div>
-    <div class="item">
-      <span>ett</span>
-      <span class="meta">[management] [booking] [label]</span>
-    </div>`
+    <div class="item"><span>emilianoakario</span><span class="meta">[management] [booking] [label]</span></div>
+    <div class="item"><span>ett</span><span class="meta">[management] [booking] [label]</span></div>`;
 }
 
 function producers(el){
-  clear();el.classList.add('sel')
+  clear(); el.classList.add('sel');
   r.innerHTML=`
-    <div class="item">
-      <span>amoresperro</span>
-      <span class="meta">[management]</span>
-    </div>
-    <div class="item">
-      <span>dnoise</span>
-      <span class="meta">[management]</span>
-    </div>`
+    <div class="item"><span>amoresperro</span><span class="meta">[management]</span></div>
+    <div class="item"><span>dnoise</span><span class="meta">[management]</span></div>`;
 }
-  
+
 function contact(el){
-  clear();el.classList.add('sel')
-  r.innerHTML='<a href="mailto:info@deadwrong.it" class="lowercase">info@deadwrong.it</a>'
+  clear(); el.classList.add('sel');
+  r.innerHTML='<a href="mailto:info@deadwrong.it" class="lowercase">info@deadwrong.it</a>';
 }
 
 function keepintouch(el){
-  clear(); el.classList.add('sel')
+  clear(); el.classList.add('sel');
   r.innerHTML = `
     <div class="keep-text">
       <span>Subscribe for updates on upcoming releases and merch drops.</span>
       <span>Get 10% off your next purchase.</span>
     </div>
-
-    <form
-      id="newsletter-form"
-      method="POST"
-      action="https://183b873d.sibforms.com/serve/MUIFAKB_TxmD5ZqWe4sUdHtQb4GpAbJ8JA-wGgyHQzKw_Is1onQOKksgShE7gNX4BfNgpcq29gBWxO-VXzyHrCbje_bDGxMWxm6JbHRr8Wb9W26JLnemGHdpOYz0Y2iz70x7ebTonQ2osuQ7FQdbUha5h3FtNTdDXa6uNyKvOx6N45WoMwLCQHf5vBU_5jcg4M9jYXL3Pz1z7Z3n"
-      class="newsletter"
-    >
-      <input
-        type="email"
-        name="EMAIL"
-        placeholder="email"
-        required
-      >
+    <form id="newsletter-form" method="POST" action="https://183b873d.sibforms.com/serve/..." class="newsletter">
+      <input type="email" name="EMAIL" placeholder="email" required>
       <button type="submit">SUBSCRIBE</button>
-
       <input type="text" name="email_address_check" value="" hidden>
       <input type="hidden" name="locale" value="it">
       <input type="hidden" name="html_type" value="simple">
     </form>
-
     <div id="newsletter-message" style="margin-top:8px; font-size:14px;"></div>
-
     <label class="consent">
       <input type="checkbox" required>
       <span>I agree to receive email updates.</span>
       <a href="/privacy-policy">PRIVACY POLICY</a>
-    </label>
-  `
-
-  // invio AJAX per evitare il reload della pagina
-  const form = document.getElementById('newsletter-form');
-  form.addEventListener('submit', function(e){
-    e.preventDefault();
-    const data = new FormData(form);
-
-    fetch(form.action, {
-      method: 'POST',
-      body: data,
-      mode: 'no-cors'
-    }).then(()=>{
-      form.style.display = 'none';
-      document.getElementById('newsletter-message').textContent = "THANKS FOR SUBSCRIBING. CHECK YOUR INBOX.";
-    }).catch(()=>{
-      document.getElementById('newsletter-message').textContent = "Something went wrong. Please try again.";
-    });
-  });
+    </label>`;
 }
 
+// AJAX submit globale per form newsletter
+document.addEventListener('submit', function(e){
+  if(e.target && e.target.id==='newsletter-form'){
+    e.preventDefault();
+    const form = e.target;
+    const data = new FormData(form);
+    fetch(form.action, {method:'POST', body:data, mode:'no-cors'})
+      .then(()=>{
+        form.style.display='none';
+        document.getElementById('newsletter-message').textContent="Thanks for subscribing. Check your inbox.";
+      })
+      .catch(()=>{
+        document.getElementById('newsletter-message').textContent="Something went wrong. Please try again.";
+      });
+  }
+});
+
+// link esterni aprono in nuova finestra
+document.querySelectorAll('a[href]').forEach(a=>{
+  if(a.href.startsWith('http')){
+    a.target='_blank';
+    a.rel='noopener noreferrer';
+  }
+});
+</script>
+
+</body>
+</html>
