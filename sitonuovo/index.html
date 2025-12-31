@@ -145,15 +145,16 @@ a:hover,.item:hover{transform:translateX(6px);opacity:.7}
   text-transform:uppercase;
   cursor:pointer;
   display:inline-flex;
-  align-items:center;        /* centra verticalmente il testo */
+  align-items:center;         /* centra verticalmente il testo */
   justify-content:center;
   line-height:1;
-  vertical-align:middle;    /* previene il “crollo” verticale */
-  transition:transform .25s, opacity .25s; /* mantiene l’hover coerente */
+  vertical-align:middle;
+  transition:transform .25s, opacity .25s;
+  transform: translateX(0);   /* punto di partenza */
 }
 
 .newsletter button:hover{
-  transform:translateX(6px); /* solo orizzontale */
+  transform: translate3d(6px, 0, 0);  /* forza lo spostamento solo orizzontale */
   opacity:.8;
 }
 
