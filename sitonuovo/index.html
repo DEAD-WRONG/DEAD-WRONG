@@ -103,22 +103,6 @@ a:hover,.item:hover{transform:translateX(6px);opacity:.7}
   opacity:.4;
 }
 
-.newsletter button{
-  background:none;
-  border:none;
-  font-family:inherit;
-  font-size:inherit;
-  text-transform:uppercase;
-  cursor:pointer;
-  padding:0;
-}
-
-.newsletter button:hover{
-  opacity:.7;
-  transform:translateX(6px);
-  transition:.25s;
-}
-
 /* KEEP IN TOUCH TEXT (NO HOVER) */
 .keep-text{
   display:flex;
@@ -152,21 +136,24 @@ a:hover,.item:hover{transform:translateX(6px);opacity:.7}
 }
 
 .newsletter button{
-  padding:6px 12px;            /* spazio attorno al testo */
+  padding:6px 12px;
   background:#000;
   color:#fff;
   border:none;
-  font-family:inherit;         /* stesso font del sito */
-  font-size:inherit;           /* eredita la dimensione del body/main */
-  text-transform:uppercase;    /* coerente con il resto del sito */
+  font-family:inherit;
+  font-size:inherit;
+  text-transform:uppercase;
   cursor:pointer;
   display:inline-flex;
-  align-items:center;
+  align-items:center;        /* centra verticalmente il testo */
   justify-content:center;
   line-height:1;
+  vertical-align:middle;    /* previene il “crollo” verticale */
+  transition:transform .25s, opacity .25s; /* mantiene l’hover coerente */
 }
 
 .newsletter button:hover{
+  transform:translateX(6px); /* solo orizzontale */
   opacity:.8;
 }
 
