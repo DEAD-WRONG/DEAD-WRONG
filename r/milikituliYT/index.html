@@ -1,0 +1,16 @@
+<!doctype html>
+<html>
+<head>
+    <title>ETT - Milikituli</title>
+        <script>
+    window.onload = function() {
+    <!-- Deep link URL for existing users with app already installed on their device -->
+        window.location = 'intent://www.youtube.com/watch?v=zEG0RkoaALo#Intent;package=com.google.android.youtube;scheme=https;end';
+        window.location = 'vnd.youtube://www.youtube.com/watch?v=zEG0RkoaALo';
+        
+    <!-- Download URL (TUNE link) for new users to download the app -->
+        setTimeout("window.location = 'https://www.youtube.com/watch?v=zEG0RkoaALo';", 1000);
+    }
+    </script>
+    </head>
+</html>
